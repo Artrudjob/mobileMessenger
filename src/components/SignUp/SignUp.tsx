@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import { SafeAreaView, Text, TextInput, TouchableOpacity, View, StyleSheet } from 'react-native';
-import ButtonAdd from './ButtonAdd/ButtonAdd';
+import ButtonAdd from '../ButtonAdd/ButtonAdd';
 
 const SignUp: FC = () => {
     const [login, setLogin] = useState<string>('');
