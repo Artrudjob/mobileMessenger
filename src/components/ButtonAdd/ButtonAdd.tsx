@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         alignSelf: "center",
         width: "82%",
         borderRadius: 10,
-        backgroundColor: "#436f64",
+        backgroundColor: "#f07800",
     },
     button__text: {
         borderRadius: 10,
