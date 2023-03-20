@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
     },
     layout__main: {
         flex: .9,
+        width: "100%"
     },
     layout__navigation: {
         width: "100%",
