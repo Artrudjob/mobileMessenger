@@ -1,8 +1,11 @@
 import React, { FC, useState } from 'react';
 import { SafeAreaView, Text, TextInput, TouchableOpacity, View, StyleSheet } from 'react-native';
+import { useNavigate } from 'react-router-native';
 import ButtonAdd from '../ButtonAdd/ButtonAdd';
 
 const SignUp: FC = () => {
+
+    const navigate = useNavigate()
     const [login, setLogin] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
@@ -53,7 +56,7 @@ const SignUp: FC = () => {
             </View>
             <View style={styles.signUp__footer}>
                 <Text style={styles.signUp__footerText}>Уже зарегистрированы? Нажмите:</Text>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigate("/signin") }>
                     <Text style={styles.signUp__buttonSignIn}>Войти</Text>
                 </TouchableOpacity>
             </View>
