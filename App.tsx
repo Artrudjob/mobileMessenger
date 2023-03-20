@@ -7,6 +7,8 @@ import ChatsPage from './src/pages/ChatsPage';
 import ProtectedRoute from './src/components/ProtectedRoute/ProtectedRoute';
 import { useState } from 'react';
 import Landing from './src/components/Landing/Landing';
+import { Provider } from 'react-redux';
+import { store } from './src/store/store';
 
 export default function App() {
   const [user, setUser] = useState<boolean>(false);
@@ -14,17 +16,19 @@ export default function App() {
   return (
     <>
       <StatusBar style="auto" />
-      <NativeRouter>
-        <Routes>
-          <Route path='/' element={<Landing />} />
-          <Route index element={<Landing />} />
-          <Route element={<ProtectedRoute user={user} />}>
-            <Route path='/chats' element={<ChatsPage />} />
-          </Route>
-          <Route path='/signin' element={<SignInPage />} />
-          <Route path='/signup' element={<SignUpPage />} />
-        </Routes>
-      </NativeRouter>
+      <Provider store={store}>
+        <NativeRouter>
+          <Routes>
+            <Route path='/' element={<Landing />} />
+            <Route index element={<Landing />} />
+            <Route element={<ProtectedRoute user={user} />}>
+              <Route path='/chats' element={<ChatsPage />} />
+            </Route>
+            <Route path='/signin' element={<SignInPage />} />
+            <Route path='/signup' element={<SignUpPage />} />
+          </Routes>
+        </NativeRouter>
+      </Provider>
     </>
   );
 }
