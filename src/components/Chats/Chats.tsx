@@ -1,5 +1,6 @@
 import React, { FC } from "react";
-import { Text, TouchableOpacity, View, StyleSheet } from "react-native";
+import { Text, TouchableOpacity, View, StyleSheet, ScrollView } from "react-native";
+import Chat from "../Chat/Chat";
 
 const Chats: FC = () => {
 
@@ -10,9 +11,24 @@ const Chats: FC = () => {
                     <Text style={styles.chat__text}>Создать чат</Text>
                 </TouchableOpacity>
             </View>
-            <View style={styles.chats__container}>
-                <Text style={styles.chats__containerText}>Вы пока еще не начали общение</Text>
-            </View>
+            <ScrollView style={styles.chats__container}>
+                {/* <Text style={styles.chats__containerText}>Вы пока еще не начали общение</Text> */}
+                <Chat /> 
+                <Chat /> 
+                <Chat /> 
+                <Chat /> 
+                <Chat /> 
+                <Chat /> 
+                <Chat /> 
+                <Chat /> 
+                <Chat /> 
+                <Chat />    
+                <Chat /> 
+                <Chat /> 
+                <Chat /> 
+                <Chat /> 
+                <Chat /> 
+            </ScrollView>
         </View>
     )
 }
