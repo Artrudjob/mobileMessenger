@@ -1,13 +1,20 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { Text, TouchableOpacity, View, StyleSheet, ScrollView } from "react-native";
 import Chat from "../Chat/Chat";
+import { Modal } from "../Modal/Modal";
 
 const Chats: FC = () => {
+
+    const [isModalVisible, setModalVisible] = useState<boolean>(false);
+
+    function handleModal() {
+        isModalVisible ? setModalVisible(false) : setModalVisible(true)
+    }
 
     return (
         <View style={styles.chat}>
             <View style={styles.chat__buttonBox}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={handleModal}>
                     <Text style={styles.chat__text}>Создать чат</Text>
                 </TouchableOpacity>
             </View>
@@ -29,6 +36,16 @@ const Chats: FC = () => {
                 <Chat /> 
                 <Chat /> 
             </ScrollView>
+            <Modal isVisible={isModalVisible} backdropPress={() => { setModalVisible(false)} }>
+                <Modal.Container>
+                    <View>
+                        <Modal.Header title="Новый чат с..." text="Назад" onPress={handleModal}/>
+                        <Modal.Body>
+
+                        </Modal.Body>
+                    </View>
+                </Modal.Container>
+            </Modal>
         </View>
     )
 }
@@ -60,6 +77,10 @@ const styles = StyleSheet.create({
         fontSize: 24,
         opacity: .5,
     }
+})
+
+const modalStyles = StyleSheet.create({
+
 })
 
 export default Chats
