@@ -68,8 +68,8 @@ const ModalContainer = ({ children }: { children: React.ReactNode }) => (
       textAlign: "center",
       fontSize: 24,
       position: "absolute",
-        left: "30%",
-        top: "25%"
+      left: "30%",
+      top: "25%"
     },
     body: {
       borderTopWidth: 1,  
