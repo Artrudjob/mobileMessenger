@@ -9,6 +9,7 @@ import { useState } from 'react';
 import Landing from './src/components/Landing/Landing';
 import { Provider } from 'react-redux';
 import { store } from './src/store/store';
+import ProfilePage from './src/pages/ProfilePage';
 
 export default function App() {
   const [user, setUser] = useState<boolean>(true);
@@ -23,6 +24,7 @@ export default function App() {
             <Route index element={<Landing />} />
             <Route element={<ProtectedRoute user={user} />}>
               <Route path='/chats' element={<ChatsPage />} />
+              <Route path='/profile' element={<ProfilePage />} />
             </Route>
             <Route path='/signin' element={<SignInPage />} />
             <Route path='/signup' element={<SignUpPage />} />

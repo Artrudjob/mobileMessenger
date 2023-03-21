@@ -1,8 +1,10 @@
 import React, { FC } from "react";
 import { SafeAreaView, View, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
-import { Link, Outlet } from "react-router-native";
+import { Link, Outlet, useNavigate } from "react-router-native";
 
 const Layout: FC = () => {
+
+    const navigate = useNavigate();
 
     return (
         <SafeAreaView style={styles.layout}>
@@ -14,11 +16,11 @@ const Layout: FC = () => {
                     <Image style={styles.layout__profile} source={require("../../../assets/contacts.png")} />
                     <Text>Контакты</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.layout__buttonBox}>
+                <TouchableOpacity style={styles.layout__buttonBox} onPress={() => {navigate("/chats")}}>
                     <Image style={styles.layout__profile} source={require("../../../assets/chat.png")} />
                     <Text>Чаты</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.layout__buttonBox}>
+                <TouchableOpacity style={styles.layout__buttonBox} onPress={() => {navigate("/profile")}}>
                     <Image style={styles.layout__profile} source={require("../../../assets/profile.png")} />
                     <Text>Профиль</Text>
                 </TouchableOpacity>
